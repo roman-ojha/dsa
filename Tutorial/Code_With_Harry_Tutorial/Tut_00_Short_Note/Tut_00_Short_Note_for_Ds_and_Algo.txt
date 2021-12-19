@@ -1,0 +1,275 @@
+# Binary Search ========================================================
+    -> Create 'low','mid','high'
+    -> low=0;
+    -> high=n-1;
+    -> mid=(low+high)/2;
+    -> if(arr[mid]==data) then return mid
+    -> else if(arr[mid]>data) then mid=high-1;
+    -> else mid=low+1;
+
+# Linked List ===========================================================
+        ->  struct Node{
+                int data;
+                struct Node *next;
+            }
+        -> create 'head'
+        -> last, Node->next = NULL
+        ->          ________        ________        ________
+          head----> |   |   |-----> |   |   |-----> |   |   |----> NULL
+                    ---------       ---------       ---------
+                        |
+                       Ptr
+        -> function:
+            a) Traversal -> O(n)
+            b) Insersion
+                I)   Insert at the bigining -> O(1)
+                II)  Insert in between -> O(n)
+                III) Insert at the end -> O(n)
+                Iv)  Insert after a (given address)Node -> O(1) 
+            c) Deletion:
+                I)   Deletion at the bigining ->O(1)
+                II)  Deletion in between ->O(n)
+                III) Deletion at the end ->O(n)
+                Iv)  Deletion at a (given address)Key ->O(1) 
+
+# Stack ==================================================================
+        -> LIFO(Last in First out) or FILO(First in Last out)
+        -> we can create Stack as an ADT (Stack ADT)
+        -> Create 'top'= -1
+        -> struct stack{
+            int size; -> max size of array
+            int top;
+            int *arr; -> array(stack)
+            }
+        -> Operation:
+            a) push() -> push an element into the Stack -> O(1)
+            b) pop() -> remove the topmost element from the Stack -> O(1)
+            c) peek(index) -> value at a given position is returned -> O(1)
+            d) isEmpty() -> determine whether the stack is Empty -> O(1)
+            e) isFull() -> Determine whether the stack is Full -> O(1)
+            f) stackTop() -> O(1)
+            g) stackBottom() -> O(1)
+
+        ->        |_____| ----> Stack Overflow
+          top-->| |_____| | ---> 3 index
+                | |_____| | ---> 2 index
+                | |_____| | ---> 1 index
+                | |_____| | ---> 0 index
+                ----------- --->-1 index (Stack Underflow)
+    # Stack using Linked List --------------------------------------------------
+        ->          ________        ________        ________
+          top ----> |   |   |-----> |   |   |-----> |   |   |----> NULL
+                    ---------       ---------       --------- 
+                        |
+                       Ptr
+        ->  a) top will use for push and pop operations
+            b) you can set a custom size for a stack in linked list to make isFull() 
+        -> Operation:
+            d) isEmpty() -> (top==NULL)
+            e) isFull() -> when Heap memory is exhausted(finished) [ptr==NULL]
+
+# Parenthesis Matching ======================================================================
+    1) A=((3*2)-1(8-2)) => this is a valid expression of parenthesis is matching in this expression
+
+    2) A=1-3)*4(8 ; => in this expression parenthesis is not maching so this is the  problem
+    but in 2nd case computer are not smart like human so they don't know that is this valid of not
+    so to check this expression what we can do is
+
+    if '(' -> Push into the stack
+    if ')' -> Pop out of the stack
+
+    Condition for a balanced expression
+    1) while popping stack should not underflow => if it happens -> unbalanced expression
+    2) while end of expression , the stack must be empty 
+
+# Infix, Prefix and Postfix ==================================================================
+    -> Notation to wirte an expression
+        1) Infix = a+b , a-b , p/q , x-4
+                     <Operand 1> <operator> <Operand 2>
+        2) Prefix  = +ab , -pq ,-xy , *pb
+                    <operator> <Operand 1> <Operand 2>
+        3) Postfix = ab+ , xy- , pv*
+                    <Operand 1> <Operand 2> <Operator>
+                        
+            a) Expression in infix:
+                                A*(B+C)*D => A=1, B=2, C=3, D=4
+                            ->  A*5*D
+                            ->  5*D
+                            ->  20
+            b) Expression in Postfix:
+                                ABC+*D* => A=1, B=2, C=3, D=4
+                            ->  A5*D*
+                            ->  5D*
+                            ->  20
+            c) Expression in prefix: 
+                                *A*+BCD
+    
+    -> Implement Infix to Postfix using Stack:
+        -> push operator into the stack if pushing operator precedence is high
+        -> pop operator from the stack if the pushing operator precedence is low or equal and then push
+        -> if pushing parenthesis is close parenthesis then pop upto open parenthesis will not found if upper tow condition will satisfy
+
+    -> Implement Infix to prefix using Stack:
+        -> push operator into the stack if pushing operator precedence is high
+        -> pop operator from the stack if the pushing operator precedence is low or equal and then push
+
+
+# Queue ==================================================================================
+        -> FIFO(First in First Out)
+        -> we can create Queue as an ADT (Queue ADT)
+                    0    1    2    3    4    5    6   -> size = 7
+                    ____________________________________
+        front----> |____|____|____|____|____|____|____| <----- rare
+                |     
+            -1 index
+        -> create front = -1, rare = -1 
+        -> struct queue{
+            int size;
+            int f;
+            int r;
+            int *arr;
+        }
+        -> Method:
+            a) enqueue() -> to insert the element into the queue -> O(1)
+            b) dequeue() -> to delete the element from the queue -> O(1)
+            c) firstval() -> to get the value of the first element -> O(1)
+            d) lastval() -> to get the value of the last element -> O(1)
+            5) peek(pos) -> value at the given position -> 
+            6) isEmpty() -> determine whether the queue is Empty -> O(1)
+                        -> front == rare
+            7) isFull() -> determine wheter the queue is full -> O(1)
+                        -> rare ==(size-1)
+        -> various way to implement queue:
+            a) using Array
+            b) using Linked list
+            c) using othe ADTs
+        ->  Drawbacks of Queue using Arrays:
+            a) Space is not used efficiently
+
+    # Circular Queue--------------------------------------
+        -> create front = 0, rare = 0 
+        -> Circular increment 
+            -> i = (i + 1) % size
+        -> isFull((r + 1) % size = f)
+
+    # Queue using Linked List-------------------------------
+        ->           ________        ________        ________
+          front----> |   |   |-----> |   |   |-----> |   |   |----> NULL
+                     ---------       ---------       ---------
+                        |                               |
+                       Ptr                            rare
+        -> ptr=rare=NULL
+    # Double-Ended Queue (DEQueue) -------------------------------
+        DEQueue: 
+            -> Insertation from Rare or front
+            -> Deletion from front or rare
+                -> Two types of DEQueue:
+                    1) Restricted Input Dequeue
+                        -> Insertion from front Not allowed
+                    2) Restricted Output Dequeue
+                        -> Deletion from rear is not allowed
+            DEQueue - ADT
+                1) data -> Same as Queue
+                2) operations :
+                    a) isEmpty()
+                    b) isFull()
+                    c) enqueueF() -> front
+                    d) enqueueR() -> rare
+                    e) dequeueF() -> front
+                    f) dequeueR() -> rare
+                    g) traversal()
+                    h) initialize()
+
+# Trees =================================================================
+    -> n nodes => n-1 edges
+    -> Terminology:
+            1) Root:  -> Topmost Node
+            2) Parent: -> Node which connects to the child
+            3) Child:  -> Node which is connected by another node 
+            4) leaf/External node: -> Node which doesn't have child
+            5) Internal node:  -> Node with atleast one children
+            6) Depth: -> Number of edges from root to the node
+            7) Height: -> No of edges from node to the depest leaf
+            8) Sibling: -> Nodes belonging to the same parent
+            9) Ancentors:  -> all parents upto root from the Node 
+            10) Descendents:  -> all child from the Node
+                             __________
+                            |____7____|  ----> root,parent,Internal [height =3]
+                               /|\
+                             /  | \
+                           /    |  \
+                         /      |   \   -> depth = 1
+                       /        |    \
+                     /          |     \
+                 _______    ________ _________
+                |___8__|   |___2___||___11___| ----> parent,child,Internal [depth = 1]
+                   / \         /        \
+                 /    \       /          \  -> depth = 2
+             ______  ______  ______    ______
+            |__1__| |__0__| |__2__|   |__3__|  ---->parent,child,Internal [depth = 2]
+               |                        /
+         leaf,child                    /    
+                                   ______
+                                  |__4__| ----->leaf,child
+
+    # Binary Tree -----------------------------------------------------------
+        -> those tree whose node degree is 2 or less then 2
+        -> binary tree is a tree which has at most 2 children for all the nodes
+            1) Tree is made up of nodes and edges
+            2) n nodes => n-1 edges
+            3) Degree => no of direct children (for a node)
+            4) Degree of a tree is the highest degree of a node among all the nodes present in the tree.
+            5) Binary tree = Tree of degree <= 2
+            -> struct node
+                {
+                    int data;
+                    struct node *left;
+                    struct node *right;
+                };
+        -> Operation:
+            a) createNode() -> to create a node and connect to make a tree
+            b) preOrder() -> to do traversal in preOrder
+            c) postOrder()-> to do traversal in postOrder
+            c) inOrder()-> to do traversal in inOrder
+
+
+                             __________
+                            |____7____|  -> degree = 2
+                               /  \
+                             /     \
+                           /        \
+                      _______      _________
+                     |___8__|     |___11___|  -> degree = 1
+                       / \             \
+                 ______  ______        ______
+                |__1__| |__0__|       |__3__|  -> degree = 1
+                                       / 
+                                   ______
+                                  |__4__|  -> degree = 0
+
+        -> Representation of a Binary Tree:
+            1) Array representation:
+            2) Linked representation:
+
+        -> Traversal in a binary tree:
+            a) Preorder Traversal:
+                => Root ---> Left Subtree ---> Right Subtree
+            b) PostOrder Traversal:
+                => Left Subtree ---> Right Subtree ---> Root
+            c) InOrder Traversal:
+                => Left Subtree ---> Root ---> Right Subtree
+        #Binary Search Tree:
+            -> Properties:
+                1) All nodes of the left subtree are lesser.
+                2) All nodes of the right subtree are greater.
+                3) left and Right subtrees are also BST
+                4) There are no duplicate nodes
+                5) Inorder traversal of a BST gives an ascending sorted array.
+
+            -> Operation:
+                a) isBST() -> to find does the given tree is BST or not
+                b) search() -> to find the key available or not in tree
+                c) insertation() -> to insert the key in the tree
+                d) deleteNode() -> to delete the particular node from the BST
+            
+        
