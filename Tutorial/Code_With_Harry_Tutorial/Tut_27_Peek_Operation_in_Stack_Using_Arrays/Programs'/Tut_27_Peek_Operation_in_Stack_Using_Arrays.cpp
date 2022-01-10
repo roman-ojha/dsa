@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+    position(i)     Array Index
+        1               2           
+        2               1           => Top-i+1
+        3               0
+*/
 struct stack
 {
     int size;
