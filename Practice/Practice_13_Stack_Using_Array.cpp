@@ -19,7 +19,7 @@ int isEmpty(struct stack *s)
 
 int isFull(struct stack *s)
 {
-    if (s->top == s->size)
+    if (s->top == s->size - 1)
         return 1;
 
     return 0;
