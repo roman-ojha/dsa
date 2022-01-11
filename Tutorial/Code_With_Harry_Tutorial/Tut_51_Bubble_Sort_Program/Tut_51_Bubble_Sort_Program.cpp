@@ -32,6 +32,7 @@ void bubbleSort(int A[], int n)
 // I am just making this function for understanding
 void adaptiveBubbleSort(int *A, int n)
 {
+    // if array is already sorted the we don't have to perform sorting after one pass
     int temp;
     int isSorted = 0;
     for (int i = 0; i < n - 1; i++)

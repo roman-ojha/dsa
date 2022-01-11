@@ -20,8 +20,11 @@ void insertionSort(int *A, int n)
         // Loop for each pass
         key = A[i];
         j = i - 1;
+        //
+
         while (j >= 0 && A[j] > key)
         {
+            // until A[j] is greather then key until that we have to shift gretter data
             A[j + 1] = A[j];
             j--;
         }
