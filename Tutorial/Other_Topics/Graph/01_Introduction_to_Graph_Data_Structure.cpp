@@ -22,24 +22,24 @@
             5) Product Recommendations
         => Graph Properties
             1) Connected / disconnected Graphs
-                => A graph is said to be connected if there exist at least one parth between every pair of vertices otherwise its is disconnected.
+                => A graph is said to be connected if there exist at least one path between every pair of vertices otherwise its is disconnected.
             2) Directed / Undirected graph
                 => In directed graph, each edge has a direction which determines the traversal order
                 => In an undirected traph the edges are unidirectional, with no direction associated with them. hence, the graph can be traversed in either direction
             3) Weighted graph
                 => A graph where each edges has a numerical weight assigned to it,
             4) Cyclic /Acyclic Graph
-                => Cyclic graph - A directed graph containing at least one graph cycle. A cyclic graph pssessing exactly one (undirected, simple) Cycle is called a unicyclic graph.
+                => Cyclic graph - A directed graph containing at least one graph cycle. A cyclic graph possessing exactly one (undirected, simple) Cycle is called a unicyclic graph.
                 => Acyclic graph(DAG) - A directed graph that is not cyclic.
             5) Dense / Sparese graph
-                => Dense graph is a graph in which the number of edges is cloas to the maximal number o edges.
-                => Spares graph is a graph in which the number of edges is cloas to the minimal number of edges.
+                => Dense graph is a graph in which the number of edges is close to the maximal number of edges.
+                => Spares graph is a graph in which the number of edges is close to the minimal number of edges.
             6) Simple graph
                 => Simple graph - A Graph without loops and without multiple edges between two nodes
             7) complete Graph
                 => Complete graph - A undirected graph in which every pair of distinct vertices is connected by a unique edge. Every complete graph is also a simple graph.
             8) Strongly connected graph
-                => A directed graph is called strongly connected is there is a path in each direction between each pair of vertices of the graph.
+                => A directed graph is called strongly connected if there is a path in each direction between each pair of vertices of the graph.
         => Graph terminology
             1) Adjacency
                 => Adjacent vertices - if there is an edge between the two vertices

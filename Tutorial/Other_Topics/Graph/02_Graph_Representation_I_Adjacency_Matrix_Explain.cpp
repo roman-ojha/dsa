@@ -49,6 +49,7 @@ int main()
 {
     int graph[V][V] = {0};
     addEdge(graph, 0, 1);
+    // addEdge(graph,<edge>)
     addEdge(graph, 0, 4);
     addEdge(graph, 1, 1);
     addEdge(graph, 1, 2);
