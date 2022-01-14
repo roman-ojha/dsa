@@ -7,11 +7,11 @@
     1) partision:
         pivot = 161
 
-        <---- lesser then 'pivot' at left side
+        <---- lesser then or equal to 'pivot' at left side
         ----> greager then 'pivot' at right side
         {161,175,152,180,178}
-            |           |
-            i=1-->    <--j=4
+              |           |
+              i=1-->    <--j=4
         is arr1[i]>arr1['pivot'], yess i=1
         is arr1[j]<=arr1['pivot'], no j--, j=3;
         is arr1[j]<=arr1['pivot'], no j--, j=2;
@@ -65,7 +65,6 @@ int partition(int A[], int low, int high)
     int i = low + 1;
     int j = high;
     int temp;
-
     do
     {
 
@@ -98,6 +97,7 @@ void quickSort(int A[], int low, int high)
     {
         int partitionIndex; // Index of pivot after partition
         partitionIndex = partition(A, low, high);
+        // in single partition, element of partitionIndex is the sorted element in the array
         quickSort(A, low, partitionIndex - 1); // here we are shorting from the refrance element that will going to sort
         // or sorting left subarray
         quickSort(A, partitionIndex + 1, high); // sort right subarray
