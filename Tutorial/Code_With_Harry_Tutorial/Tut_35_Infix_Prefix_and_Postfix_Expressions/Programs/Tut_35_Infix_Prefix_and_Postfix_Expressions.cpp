@@ -33,7 +33,7 @@ Q1) x-y*z to prefix and postfix ?
         Step 1-> parenthesize the expression
             (x-(y*z))
             (x-[*yz])
-            (-x[*yz])
+            (-x[*yz]) 
         so, -x*yz
     2) Postfix
         Step 1-> parenthesize the expression
@@ -41,4 +41,6 @@ Q1) x-y*z to prefix and postfix ?
             (x-[yz]*)
             (xyz*-)
         so, xyz*-
+
+Q2) p-q-r/a => ((p-q)-(r/a))
 */
