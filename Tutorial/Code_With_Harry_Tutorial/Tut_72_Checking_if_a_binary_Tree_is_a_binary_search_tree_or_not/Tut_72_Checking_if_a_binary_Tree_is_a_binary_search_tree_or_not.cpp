@@ -32,6 +32,8 @@ void inOrder(struct node *root)
 
 int isBST(struct node *root)
 {
+    //NOTE:  to check whether it is BST or not, we can create a inorder traversal using that we can creat an ascending order and after that we can compare, if previous data is lesser then current data then we can say that it is a bst
+
     static struct node *prev = NULL;
     // firstly prev will point to the root
     // here we are checking using inorder

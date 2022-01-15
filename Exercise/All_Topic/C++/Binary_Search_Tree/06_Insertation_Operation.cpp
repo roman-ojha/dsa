@@ -46,6 +46,38 @@ void insertation(struct Node *root, struct Node *prev, int data)
     }
 }
 
+void insertionAnother(struct Node *root, int data)
+{
+    struct Node *n = createNode(data);
+    while (root != NULL)
+    {
+
+        if (root->left == NULL && root->data > data)
+        {
+            root->left = n;
+            break;
+        }
+        else if (root->right == NULL && root->data < data)
+        {
+            root->right = n;
+            break;
+        }
+        else if (root->data > data)
+        {
+            root = root->left;
+        }
+        else if (root->data < data)
+        {
+            root = root->right;
+        }
+        else
+        {
+            printf("given data is already exist in the tree");
+            break;
+        }
+    }
+}
+
 void inOrder(struct Node *root)
 {
     if (root != NULL)

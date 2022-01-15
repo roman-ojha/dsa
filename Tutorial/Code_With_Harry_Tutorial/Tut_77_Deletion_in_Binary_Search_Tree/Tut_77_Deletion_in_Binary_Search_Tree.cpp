@@ -1,4 +1,32 @@
 /*
+ # from geeksfrogeeks
+
+We have discussed BST search and insert operations. In this post, the delete operation is discussed. When we delete a node, three possibilities arise. 
+1) Node to be deleted is the leaf: Simply remove from the tree. 
+
+              50                            50
+           /     \         delete(20)      /   \
+          30      70       --------->    30     70 
+         /  \    /  \                     \    /  \ 
+       20   40  60   80                   40  60   80
+2) Node to be deleted has only one child: Copy the child to the node and delete the child 
+
+              50                            50
+           /     \         delete(30)      /   \
+          30      70       --------->    40     70 
+            \    /  \                          /  \ 
+            40  60   80                       60   80
+3) Node to be deleted has two children: Find inorder successor of the node. Copy contents of the inorder successor to the node and delete the inorder successor. Note that inorder predecessor can also be used. 
+
+              50                            60
+           /     \         delete(50)      /   \
+          40      70       --------->    40    70 
+                 /  \                            \ 
+                60   80                           80
+
+*/
+
+/*
     #Deleting a node in a BST case:
         Case 1: The node is a leaf node
         Case 2: The node is a non leaf node
@@ -25,33 +53,5 @@
         step 1 -> Search for the node
         step 2 -> Search for Ipre(inorder pre) and Ipost(inorder post)
         step 3 -> Keep doing this until the tree has no empty nodes
-
-*/
-
-/*
- # from geeksfrogeeks
-
-We have discussed BST search and insert operations. In this post, the delete operation is discussed. When we delete a node, three possibilities arise. 
-1) Node to be deleted is the leaf: Simply remove from the tree. 
-
-              50                            50
-           /     \         delete(20)      /   \
-          30      70       --------->    30     70 
-         /  \    /  \                     \    /  \ 
-       20   40  60   80                   40  60   80
-2) Node to be deleted has only one child: Copy the child to the node and delete the child 
-
-              50                            50
-           /     \         delete(30)      /   \
-          30      70       --------->    40     70 
-            \    /  \                          /  \ 
-            40  60   80                       60   80
-3) Node to be deleted has two children: Find inorder successor of the node. Copy contents of the inorder successor to the node and delete the inorder successor. Note that inorder predecessor can also be used. 
-
-              50                            60
-           /     \         delete(50)      /   \
-          40      70       --------->    40    70 
-                 /  \                            \ 
-                60   80                           80
 
 */

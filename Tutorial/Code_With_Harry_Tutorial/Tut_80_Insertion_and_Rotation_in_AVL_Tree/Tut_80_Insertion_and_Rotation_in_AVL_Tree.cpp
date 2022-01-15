@@ -5,10 +5,10 @@
                 7
             L  /
               5
-          l  /
+          L  /
             4
 
-        -> after Rotation:
+        -> after Rotation: 
                 5
                / \
               4   7
