@@ -271,5 +271,3 @@
                 b) search() -> to find the key available or not in tree
                 c) insertation() -> to insert the key in the tree
                 d) deleteNode() -> to delete the particular node from the BST
-            
-        

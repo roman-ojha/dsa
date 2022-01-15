@@ -71,7 +71,7 @@
 
         void Merg(A[],mid,lo,hi){
             int i,j,k;int B[hi+1];
-            i=10,j=mid+1,k=lo;
+            i=lo,j=mid+1,k=lo;
             while(i<=mid&&j<=hi)
             {
                 if(A[i]<A[j])
@@ -93,6 +93,10 @@
                 // From B[j to hi] to B
                 B[k]=A[j];
                 k++;j++;
+            }
+            for(int i=lo,i<=hi,i++){
+                // to copy all B array element to A array element
+                A[i]=B[j];
             }
         }
 
