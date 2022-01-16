@@ -90,7 +90,7 @@ struct node *deleteNode(struct node *root, int value)
     if (root->left == NULL && root->right == NULL)
     {
         // after recursive call we will come to this position where
-        // after replacing all the node we aill come to the leaf node now that node value will going to be the 'value' that we want to delete
+        // after replacing all the node we will come to the leaf node now that node value will going to be the 'value' that we want to delete
         free(root);
         return NULL;
     }
