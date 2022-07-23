@@ -1,0 +1,4 @@
+-> Documentation: https://www.geeksforgeeks.org/data-structures/linked-list/
+*) Linear data structure
+*) Not stored at contiguous Memory location
+*) The elements in a linked list are linked using pointers 
