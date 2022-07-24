@@ -83,6 +83,41 @@ void deleteAfter(Node **prev_node)
     delete temp;
 }
 
+//  4) Deletion of the given position node
+// position = 1 (head)
+void deleteNodeOfPosition(Node **head, int position)
+{
+    Node *ptr = (*head);
+    if ((*head) == NULL)
+    {
+        cout << "Head is Null" << endl;
+        return;
+    }
+    if (position == 0)
+    {
+        cout << "Postion 0 doesn't exist" << endl;
+        return;
+    }
+    if (position == 1)
+    {
+        (*head) = (*head)->next;
+        free(ptr);
+        return;
+    }
+    for (int i = 1; i < position - 1; i++)
+    {
+        ptr = ptr->next;
+        if (ptr->next == NULL)
+        {
+            cout << "Given position is doesn't exist" << endl;
+            return;
+        }
+    }
+    Node *temp = ptr->next;
+    ptr->next = ptr->next->next;
+    free(temp);
+}
+
 int main()
 {
     Node *head = NULL;
@@ -95,6 +130,11 @@ int main()
     deleteFromEnd(&head);
     deleteFromEnd(&head);
     deleteAfter(&head->next);
+    push(&head, 10);
+    push(&head, 13);
+    push(&head, 17);
+    push(&head, 20);
+    deleteNodeOfPosition(&head, 5);
     printList(head);
     return 0;
 }
