@@ -5,13 +5,18 @@ using namespace std;
 class Stack
 {
 public:
-    int size;
+    int capacity;
     int *arr;
     int top;
     Stack(int s)
     {
-        size = s;
+        capacity = s;
         top = -1;
+        arr = new int[capacity];
+    }
+    ~Stack()
+    {
+        delete[] arr;
     }
     bool isEmpty()
     {
@@ -23,7 +28,7 @@ public:
     }
     bool isFull()
     {
-        if (top == size - 1)
+        if (top == capacity - 1)
         {
             return true;
         }
@@ -62,7 +67,7 @@ public:
         if (isEmpty())
         {
             cout << "Stack is empty" << endl;
-            return 0;
+            exit(EXIT_FAILURE);
         }
         top--;
         return arr[top + 1];
@@ -72,7 +77,7 @@ public:
         if (isEmpty())
         {
             cout << "Stack is empty" << endl;
-            return 0;
+            exit(EXIT_FAILURE);
         }
         return arr[top];
     }
@@ -80,9 +85,8 @@ public:
 
 int main()
 {
-    int size = 100;
-    Stack s(size);
-    s.arr = new int[size];
+    int capacity = 100;
+    Stack s(capacity);
     // auto [isPop1, Pop1] = s.pop();
     s.push(10);
     s.push(15);
