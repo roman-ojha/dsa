@@ -1,4 +1,5 @@
 #include <iostream>
+#include <tuple>
 using namespace std;
 
 class Stack
@@ -37,12 +38,31 @@ public:
         }
         arr[++top] = data;
     }
+    // tuple<bool, int> pop()
+    // {
+    //     if (isEmpty())
+    //     {
+    //         cout << "Stack is empty" << endl;
+    //         return {false, 0};
+    //     }
+    //     top--;
+    //     return {true, arr[top + 1]};
+    // }
+    // tuple<bool, int> topOfStack()
+    // {
+    //     if (isEmpty())
+    //     {
+    //         cout << "Stack is empty" << endl;
+    //         return {false, 0};
+    //     }
+    //     return {true, arr[top]};
+    // }
     int pop()
     {
         if (isEmpty())
         {
             cout << "Stack is empty" << endl;
-            return;
+            return 0;
         }
         top--;
         return arr[top + 1];
@@ -52,7 +72,7 @@ public:
         if (isEmpty())
         {
             cout << "Stack is empty" << endl;
-            return;
+            return 0;
         }
         return arr[top];
     }
@@ -63,5 +83,11 @@ int main()
     int size = 100;
     Stack s(size);
     s.arr = new int[size];
+    // auto [isPop1, Pop1] = s.pop();
+    s.push(10);
+    s.push(15);
+    cout << s.pop() << endl;
+    cout << s.pop() << endl;
+    cout << s.topOfStack() << endl;
     return 0;
 }
