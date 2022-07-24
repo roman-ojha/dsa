@@ -118,7 +118,7 @@ void deleteNodeOfPosition(Node **head, int position)
     free(temp);
 }
 
-//
+// 5) Deleting Using Given Key
 
 int main()
 {
