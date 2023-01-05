@@ -24,4 +24,62 @@
                     |__|Q2|X |__|
                     |__|__|X |__|
                 -> Not possible to put Q3 on column 3rd
-                -> It means that we placed Q1 & Q2 wrong way we have to backtrack
+                -> It means that we placed Q1 & Q2 wrong way we have to backtrack to rearrange Q1 & Q2
+            -> Second Column place Q2:
+                    |Q1|X |__|__|
+                    |__|X |__|__|
+                    |__|X |__|__|
+                    |__|Q2|__|__|
+            -> Third column place Q3:
+                    |Q1|__|X |__|
+                    |__|__|Q3|__|
+                    |__|__|__|__|
+                    |__|Q2|__|__|
+            -> Fourth column place Q4:
+                    |Q1|__|X |X |
+                    |__|__|Q3|X |
+                    |__|__|__|X |
+                    |__|Q2|__|X |
+                -> can't place Q4 on any where on 4th column
+                -> so we arrange Q1, Q2, Q3 in wrong way so we backtrack and rearrange those Queens
+            -> Third column place Q3:
+                    |Q1|__|X |__|
+                    |__|__|X |__|
+                    |__|__|X |__|
+                    |__|Q2|X |__|
+                -> now Q3 arrange is also not possible we again have to backtrack and arrange Q1 & Q2
+            -> Second column place Q2:
+                    |Q1|__|__|__|
+                    |__|__|__|__|
+                    |__|__|__|__|
+                    |__|__|__|__|
+                -> Q2 was on last possible place so we have to arrange Q1 so backtrack
+            -> First column place Q1:
+                    |X |__|__|__|
+                    |Q1|__|__|__|
+                    |__|__|__|__|
+                    |__|__|__|__|
+                -> placing Q1 on 2nd row 1st column
+            -> Second column place Q2:
+                    |__|__|__|__|
+                    |Q1|__|__|__|
+                    |__|__|__|__|
+                    |__|Q2|__|__|
+            -> Third column place Q3:
+                    |__|__|Q3|__|
+                    |Q1|__|__|__|
+                    |__|__|__|__|
+                    |__|Q2|__|__|
+            -> Fourth column place Q4:
+                    |__|__|Q3|__|
+                    |Q1|__|__|__|
+                    |__|__|__|Q4|
+                    |__|Q2|__|__|
+
+            -> Therefore, First possible solution is:
+                |__|__|Q3|__|
+                |Q1|__|__|__|
+                |__|__|__|Q4|
+                |__|Q2|__|__|
+
+            -> Now try to find other possible solution
