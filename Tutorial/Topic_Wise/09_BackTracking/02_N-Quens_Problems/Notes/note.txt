@@ -1,0 +1,27 @@
+*) N Queens Problem:
+    -> on 1*1, 2*2, 3*3 cheese all Queens are not safe
+    -> we can only place Queens from 4*4 cheese board
+    -> 4*4 Cheese:
+        -> Q1, Q2, Q3, Q4
+        -> one Queen can come on 1st Row or 1st column only
+        -> for another Queen we have to place in 2nd Row or 2nd column
+        -> Placing Column wise
+            -> First Column place Q1:
+                -> Place on 1st row, 1st column
+                    |Q1|__|__|__|
+                    |__|__|__|__|
+                    |__|__|__|__|
+                    |__|__|__|__|
+            -> Second Column place Q2:
+                -> can't place on 1st row, 2nd column & 2nd row, 2nd column
+                    |Q1|X |__|__|
+                    |__|X |__|__|
+                    |__|Q2|__|__|
+                    |__|__|__|__|
+            -> Third Column place Q3:
+                    |Q1|__|X |__|
+                    |__|__|X |__|
+                    |__|Q2|X |__|
+                    |__|__|X |__|
+                -> Not possible to put Q3 on column 3rd
+                -> It means that we placed Q1 & Q2 wrong way we have to backtrack
