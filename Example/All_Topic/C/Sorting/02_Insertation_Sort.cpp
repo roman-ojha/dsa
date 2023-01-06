@@ -10,7 +10,7 @@ void printData(int A[], int n)
     }
 }
 
-void insertationSort(int A[], int n)
+void insertionSort(int A[], int n)
 {
     int j, key;
     for (int i = 0; i < n; i++)
@@ -32,7 +32,7 @@ int main()
     int A[] = {54, 76, 32, 43, 65, 12, 2, 32, 4};
     int n = 9;
     printData(A, n);
-    insertationSort(A, n);
+    insertionSort(A, n);
     printData(A, n);
     return 0;
 }
