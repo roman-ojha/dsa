@@ -20,7 +20,6 @@ using namespace std;
             [[".Q..","...Q","Q...","..Q."],
             ["..Q.","Q...","...Q",".Q.."]]
 
-
 */
 
 // Store board of all the possible solution
@@ -29,11 +28,17 @@ vector<vector<string>> allBoard;
 // Print all the possible solution board
 void print_board(int n)
 {
-    for (int i = 0; i < allBoard.size(); i++)
+    for (int i = 0; i < (int)allBoard.size(); i++)
     {
         for (int j = 0; j < n; j++)
         {
-            cout << allBoard[i][j] << endl;
+            // cout << allBoard[i][j] << endl;
+            // Print with space
+            for (int k = 0; k < (int)allBoard[i][j].length(); k++)
+            {
+                cout << allBoard[i][j][k] << " ";
+            }
+            cout << endl;
         }
         cout << endl;
     }
@@ -43,14 +48,14 @@ void print_board(int n)
 int isSafe(int row, int col, vector<string> &board)
 {
     // Checking horizontal line:
-    for (int j = 0; j < board.size(); j++)
+    for (int j = 0; j < (int)board.size(); j++)
     {
         if (board[row][j] == 'Q')
             return false;
     }
 
     // Checking vertical lines:
-    for (int i = 0; i < board.size(); i++)
+    for (int i = 0; i < (int)board.size(); i++)
     {
         if (board[i][col] == 'Q')
             return false;
@@ -60,7 +65,7 @@ int isSafe(int row, int col, vector<string> &board)
     // Top right diagonal:
     // i-- & j++
     int i = row, j = col;
-    while (i >= 0 && j < board.size())
+    while (i >= 0 && j < (int)board.size())
     {
         // Moving on Top left diagonal element
         if (board[i--][j++] == 'Q')
@@ -78,7 +83,7 @@ int isSafe(int row, int col, vector<string> &board)
     // Bottom right diagonal:
     // i++ & j++
     i = row, j = col;
-    while (i < board.size() && j < board.size())
+    while (i < (int)board.size() && j < (int)board.size())
     {
         // Moving on Top left diagonal element
         if (board[i++][j++] == 'Q')
@@ -87,7 +92,7 @@ int isSafe(int row, int col, vector<string> &board)
     // Bottom left diagonal:
     // i++ & j--
     i = row, j = col;
-    while (i < board.size() && j >= 0)
+    while (i < (int)board.size() && j >= 0)
     {
         // Moving on Top left diagonal element
         if (board[i++][j--] == 'Q')
@@ -99,20 +104,21 @@ int isSafe(int row, int col, vector<string> &board)
 }
 
 // Recursive function to solve nQueens problem
+// NOTE: we are placing queens on column wise, you can place queens on row wise as well
 void rec(vector<string> board, int col)
 {
     // Base condition:
     // if column is at the end of column
     // col == size of column in board
     // in that case we will put the board that get solved in the 'allBoard' that contain all the possible solution
-    if (col == board.size())
+    if (col == (int)board.size())
     {
         allBoard.push_back(board);
         return;
     }
 
     // Now we will put queen into the row 0 on possible column
-    for (int row = 0; row < board.size(); row++)
+    for (int row = 0; row < (int)board.size(); row++)
     {
         // before placing the Queen first we have to check does the current place is safe or not
         if (isSafe(row, col, board))
@@ -147,8 +153,9 @@ vector<vector<string>> solveNQueens(int n)
 
 int main()
 {
-    solveNQueens(4);
+    int n = 4;
+    solveNQueens(n);
     cout << "No. of possible solution is: " << allBoard.size() << endl;
-    print_board(4);
+    print_board(n);
     return 0;
 }

@@ -26,7 +26,7 @@ int fib(int n)
     }
     return result;
     /*
-    => Here, we need to compute the return value for fib(2) 3 times and we need to compute the return value for fib(3) 2 times, its is ok for to find 5th fibonacci number but it became issue if you want to find the fibonacii number of 100th 
+    => Here, we need to compute the return value for fib(2) 3 times and we need to compute the return value for fib(3) 2 times, its is ok for to find 5th fibonacci number but it became issue if you want to find the fibonacii number of 100th
     T(n) = O(2^n)
     and here the dynamic programming say that store those return values ones we compute it and use that same value when we see fib(3) or fib(2) agian rather then compute it again
     */
@@ -59,7 +59,8 @@ int fib_bottom_up(int n)
     {
         return 1;
     }
-    int bottom_up[n + 1];
+    // int bottom_up[n + 1];
+    int *bottom_up = new int[n + 1];
     // here we are creating the 'n+1' size of array
     bottom_up[1] = 1;
     bottom_up[2] = 1;
