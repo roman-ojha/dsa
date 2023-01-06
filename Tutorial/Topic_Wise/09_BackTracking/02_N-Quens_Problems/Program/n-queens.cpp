@@ -1,37 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int isSafeToPlace(string **board, int r, int c, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        // Get Diagonally element
-        string curr = board[r + i][c + i];
-        if ((curr == "Q1") || (curr == "Q2") || (curr == "Q3") || (curr == "Q4"))
-        {
-            return false;
-        }
+/*
+    EX:
+        -> Possible solution
+            |__|__|Q3|__|
+            |Q1|__|__|__|
+            |__|__|__|Q4|
+            |__|Q2|__|__|
 
-        // Get horizontal element
-        curr = board[r][c + i];
-        if ((curr == "Q1") || (curr == "Q2") || (curr == "Q3") || (curr == "Q4"))
-        {
-            return false;
-        }
+            |__|Q2|__|__|
+            |__|__|__|Q4|
+            |Q1|__|__|__|
+            |__|__|Q3|__|
+        -> Output:
+            [[".Q..","...Q","Q...","..Q."],
+            ["..Q.","Q...","...Q",".Q.."]]
 
-        // Get vertical element
-        curr = board[r + i][c];
-        if ((curr == "Q1") || (curr == "Q2") || (curr == "Q3") || (curr == "Q4"))
-        {
-            return false;
-        }
-    }
 
-    // Now it is safe
-    return true;
-}
+*/
 
-void nQueens(string **board, int i, int j, int n)
+void nQueens(string **board, int r, int c, int n)
 {
     // Next Diagonal element of board[i][j] is board[i+1][j+1]
 }
