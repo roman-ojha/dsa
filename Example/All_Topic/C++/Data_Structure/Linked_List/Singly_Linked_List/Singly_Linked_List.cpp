@@ -161,6 +161,16 @@ public:
         }
     }
 
+    T front()
+    {
+        return this->at(this->start() - 1);
+    }
+
+    T back()
+    {
+        return this->at(this->n - 1);
+    }
+
     T at(int index)
     {
         int i = 0;
@@ -214,5 +224,8 @@ int main()
     l2.deletion(l2.start() + 1);
 
     l2.print();
+
+    cout << "Front: " << l2.front() << endl;
+    cout << "Back: " << l2.back() << endl;
     return 0;
 }
