@@ -44,7 +44,6 @@ public:
     {
         return this->n + 1;
     }
-
     int size()
     {
         return this->n;
@@ -188,6 +187,12 @@ public:
         return ptr->data;
     }
 
+    // Return underlying Linked list pointer
+    Node<T> *data()
+    {
+        return this->head;
+    }
+
     void print()
     {
         Node<T> *ptr = this->head;
@@ -227,5 +232,9 @@ int main()
 
     cout << "Front: " << l2.front() << endl;
     cout << "Back: " << l2.back() << endl;
+
+    // Head of the linked list
+    auto list2 = l2.data();
+
     return 0;
 }
