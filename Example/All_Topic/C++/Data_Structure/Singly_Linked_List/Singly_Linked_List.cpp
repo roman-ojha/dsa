@@ -28,11 +28,13 @@ public:
         this->n = 0;
         this->head = NULL;
     }
+
     LinkedList(T data)
     {
         this->head = new Node<T>(data, NULL);
         this->n = 1;
     }
+
     int start()
     {
         return 1;
@@ -58,7 +60,7 @@ public:
             }
             else
             {
-                cout << "Exist Position doesn't exist" << endl;
+                cout << "Given Position doesn't exist" << endl;
                 exit(1);
             }
         }
@@ -105,6 +107,60 @@ public:
             }
         }
     }
+
+    void deletion(int position)
+    {
+        if (this->head == NULL)
+        {
+            cout << "Given Position doesn't exist" << endl;
+            exit(1);
+        }
+        else
+        {
+            if (position == this->start())
+            {
+                // Deletion In starting position
+                Node<T> *ptr = this->head;
+                this->head = this->head->next;
+                delete ptr;
+                this->n = this->n - 1;
+            }
+            else if (position == this->end())
+            {
+                // Deletion At the end of position
+                Node<T> *ptr = this->head;
+                while (ptr->next->next != NULL)
+                {
+                    ptr = ptr->next;
+                }
+                Node<T> *temp = ptr->next;
+                ptr->next = NULL;
+                delete temp;
+                this->n = this->n - 1;
+            }
+            else
+            {
+                // Deletion in between
+                Node<T> *ptr = this->head;
+                int i = 1;
+                while (i < position - 1)
+                {
+                    if (ptr->next == NULL)
+                    {
+                        cout << "Given Position doesn't exist" << endl;
+                        exit(1);
+                    }
+                    ptr = ptr->next;
+                    i++;
+                }
+                Node<T> *temp = ptr->next;
+                ptr->next = ptr->next->next;
+                delete temp;
+                this->n = this->n - 1;
+            }
+        }
+    }
+
     T at(int index)
     {
         int i = 0;
@@ -121,6 +177,7 @@ public:
         }
         return ptr->data;
     }
+
     void print()
     {
         Node<T> *ptr = this->head;
@@ -139,8 +196,8 @@ int main()
     // l.insert(1, l.start());
     LinkedList<int> l2(10);
     l2.insert(2, l2.start());
-    // l2.insert(12, l2.start());
-    l2.insert(33, l2.end() + 1);
+    l2.insert(12, l2.start());
+    l2.insert(33, l2.end());
 
     // 2nd position
     l2.insert(51, l2.start() + 1);
@@ -148,8 +205,14 @@ int main()
     // 3rd position
     l2.insert(71, l2.start());
 
+    // cout << l2.at(3) << endl;
+
     l2.print();
 
-    cout << l2.at(3) << endl;
+    l2.deletion(l2.start());
+    l2.deletion(l2.end());
+    l2.deletion(l2.start() + 1);
+
+    l2.print();
     return 0;
 }
