@@ -33,6 +33,20 @@ public:
         this->head = new Node<T>(data, NULL);
         this->n = 1;
     }
+    int start()
+    {
+        return 1;
+    }
+
+    int end()
+    {
+        return this->n + 1;
+    }
+
+    int size()
+    {
+        return this->n;
+    }
     void insert(T data, int position)
     {
         if (this->head == NULL)
@@ -44,8 +58,8 @@ public:
             }
             else
             {
-                cout << "Position is out of bound" << endl;
-                // exit()
+                cout << "Exist Position doesn't exist" << endl;
+                exit(1);
             }
         }
         else
@@ -76,6 +90,11 @@ public:
                 int i = 1;
                 while (i < position - 1)
                 {
+                    if (ptr->next == NULL)
+                    {
+                        cout << "Given Position doesn't exist" << endl;
+                        exit(1);
+                    }
                     ptr = ptr->next;
                     i++;
                 }
@@ -86,7 +105,22 @@ public:
             }
         }
     }
-
+    T at(int index)
+    {
+        int i = 0;
+        Node<T> *ptr = this->head;
+        while (i < index)
+        {
+            if (ptr->next == NULL)
+            {
+                cout << "Given Index doesn't exist" << endl;
+                exit(1);
+            }
+            ptr = ptr->next;
+            i++;
+        }
+        return ptr->data;
+    }
     void print()
     {
         Node<T> *ptr = this->head;
@@ -97,22 +131,6 @@ public:
         }
         cout << "NULL" << endl;
     }
-
-    // Iterator
-    int start()
-    {
-        return 1;
-    }
-
-    int end()
-    {
-        return this->n + 1;
-    }
-
-    int size()
-    {
-        return this->n;
-    }
 };
 
 int main()
@@ -122,7 +140,7 @@ int main()
     LinkedList<int> l2(10);
     l2.insert(2, l2.start());
     // l2.insert(12, l2.start());
-    l2.insert(33, l2.end());
+    l2.insert(33, l2.end() + 1);
 
     // 2nd position
     l2.insert(51, l2.start() + 1);
@@ -131,5 +149,7 @@ int main()
     l2.insert(71, l2.start());
 
     l2.print();
+
+    cout << l2.at(3) << endl;
     return 0;
 }
