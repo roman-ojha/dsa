@@ -42,15 +42,15 @@ public:
         }
     }
 
-    void preOrder(Node<Data> *ptr)
+    void postOrder(Node<Data> *ptr)
     {
         if (ptr == nullptr)
         {
             return;
         }
+        postOrder(ptr->left);
+        postOrder(ptr->right);
         cout << ptr->data << " ";
-        preOrder(ptr->left);
-        preOrder(ptr->right);
     }
 };
 
@@ -60,7 +60,7 @@ int main()
     vector<int> nodes{1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
     BT<int> bt;
     Node<int> *root = bt.build(&nodes);
-    bt.preOrder(root);
-    // 1 2 4 5 3 6
+    bt.postOrder(root);
+    // 4 5 2 6 3 1
     return 0;
 }
