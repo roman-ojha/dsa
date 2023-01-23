@@ -45,6 +45,7 @@ public:
     {
         if (root == nullptr)
         {
+            // root = new Node<DataType>(data);
             return;
         }
         else
@@ -75,6 +76,32 @@ public:
         }
     }
 
+    // Another way to insert into BST
+    // finally it will return the root of the tree
+    Node<DataType> *insert2(Node<DataType> *node, DataType data)
+    {
+        if (node == nullptr)
+        {
+            return new Node<DataType>(data);
+        }
+        else
+        {
+            if (node->data > data)
+            {
+                node->left = insert2(node->left, data);
+            }
+            else if (node->data < data)
+            {
+                node->right = insert2(node->right, data);
+            }
+            else
+            {
+                // data already exist
+            }
+        }
+        return node;
+    }
+
     void inOrder(Node<DataType> *ptr)
     {
         if (ptr == nullptr)
@@ -102,11 +129,12 @@ int main()
     bt.inOrder(root);
     cout << endl;
 
-    bt.insert(root, 2);
-    bt.inOrder(root);
-    cout << endl;
+    // bt.insert(root, 2);
+    // bt.inOrder(root);
+    // cout << endl;
 
-    bt.insert(root, 12);
+    bt.insert2(root, 12);
+    bt.insert2(root, 2);
     bt.inOrder(root);
     cout << endl;
     return 0;
