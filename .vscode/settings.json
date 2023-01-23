@@ -71,6 +71,7 @@
     "xstring": "cpp",
     "xutility": "cpp",
     "xhash": "cpp",
-    "xtree": "cpp"
+    "xtree": "cpp",
+    "queue": "cpp"
   }
 }
