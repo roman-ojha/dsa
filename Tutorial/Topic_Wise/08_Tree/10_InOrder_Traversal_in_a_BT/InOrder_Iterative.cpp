@@ -54,31 +54,34 @@ public:
     void inOrder(Node<Data> *root)
     {
         std::stack<Node<Data> *> S;
-        Node<Data> *ptr = root;
-        S.push(ptr);
+        Node<Data> *curr = root;
+        if (curr != nullptr)
+        {
+            S.push(curr);
+        }
         while (!S.empty())
         {
-            if (ptr != nullptr)
+            if (curr != nullptr)
             {
                 // Left
-                ptr = ptr->left;
-                if (ptr != nullptr)
+                curr = curr->left;
+                if (curr != nullptr)
                 {
-                    S.push(ptr);
+                    S.push(curr);
                 }
             }
             else
             {
                 // Root
-                Node<Data> *curr = S.top();
+                curr = S.top();
                 cout << curr->data << " ";
                 S.pop();
 
                 // Right
-                ptr = curr->right;
-                if (ptr != nullptr)
+                curr = curr->right;
+                if (curr != nullptr)
                 {
-                    S.push(ptr);
+                    S.push(curr);
                 }
             }
         }
