@@ -50,6 +50,25 @@ public:
             return false;
         return isSameTree(p->right, q->right) && isSameTree(p->left, q->left);
     }
+
+    bool isSameTree2(TreeNode *p, TreeNode *q)
+    {
+        // Another method
+        if (p == nullptr && q == nullptr)
+            return true;
+        if ((p == nullptr && q != nullptr) || (p != nullptr && q == nullptr))
+            return false;
+        if (p->val != q->val)
+            return false;
+
+        // Check for the left tree
+        bool isLeftSame = isSameTree(p->left, q->left);
+        // Check for the right tree
+        bool isRightSame = isSameTree(p->right, q->right);
+
+        // Is left tree && right tree are same
+        return isLeftSame && isRightSame;
+    }
 };
 
 int main()
