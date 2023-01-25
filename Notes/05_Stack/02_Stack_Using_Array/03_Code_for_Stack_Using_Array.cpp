@@ -45,11 +45,12 @@ public:
 
     int top_of_stack()
     {
-        if (this->is_empty())
-        {
-            cout << "Stack is empty" << endl;
-        }
-        return this->arr[this->top];
+        return (int)NULL;
+        // if (this->is_empty())
+        // {
+        //     cout << "Stack is empty" << endl;
+        // }
+        // return this->arr[this->top];
     }
 
     void pop()
@@ -57,6 +58,7 @@ public:
         if (this->is_empty())
         {
             cout << "Stack is empty" << endl;
+            return;
         }
         this->top--;
     }
@@ -75,14 +77,14 @@ public:
 int main()
 {
     Stack s(4);
-    s.push(10);
-    s.push(31);
-    s.push(17);
-    s.push(24);
-    // cout << s.top_of_stack() << endl;
-    s.pop();
-    s.pop();
-    s.pop();
+    // s.push(10);
+    // s.push(31);
+    // s.push(17);
+    // s.push(24);
+    cout << s.top_of_stack() << endl;
+    // s.pop();
+    // s.pop();
+    // s.pop();
     s.print();
     return 0;
 }
