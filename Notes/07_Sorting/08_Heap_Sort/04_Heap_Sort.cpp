@@ -1,8 +1,11 @@
 /*
-    # Sorting Heap process:
+    # Sorting Heap process using deletion concept:
         1) Build a MaxHeap.
-        2) Delete Data from MaxHeap one by one.
-        3) after all the deleted data that we delete will be sorted.
+        2) Delete 0th index from MaxHeap.
+        3) Deleted node will go the the index which index value we are placing into the 0th index
+        4) Heapify the Remaining MaxHeap
+        5) Repeat 2, 3, 4 steps
+        6) After all the deleted data that we delete will be in sorted order.
     => Time Complexity
         => in creation O(nlog n)
         => in deletion O(nlog n)
