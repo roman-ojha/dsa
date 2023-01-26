@@ -1,10 +1,10 @@
 /*
 # Heap
     ->  Heap is the Almost Complete Binary tree or Complete binary tree
-    -> Not neccessarily BST
+    -> Not necessarily BST
     -> Heap are of two type
         1) MaxHeap
-        -> If root > rest of the elements present in its subtree 
+        -> If root > rest of the elements present in its subtree
         -> if this will satisfy to all the node of the tree then it is a MaxHeap
                                 6
                                / \

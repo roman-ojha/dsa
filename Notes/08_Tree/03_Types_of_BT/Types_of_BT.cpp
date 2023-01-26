@@ -11,8 +11,7 @@
             -> all leaf are on same level
         3) Complete Binary Tree:
             -> All levels are completely filled except possibly the last level
-                OR
-            -> Must have its keys as left as possible
+            -> and in the last level all the nodes are aligned as left as possible
         4) Degenerate Tree:
             -> Every Parent node has exactly one child
         5) Skewed Trees

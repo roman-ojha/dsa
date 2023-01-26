@@ -2,12 +2,12 @@
     # Heap
         -> Heap is the Almost Complete Binary tree or Complete binary tree
         => Almost Complete Binary tree
-            -> All the level in the tree are completly filled except possible the last level
+            -> All the level in the tree are completely filled except possible the last level
             -> and in the last level all the keys are align as left as possible
         => Max Heap
-            -> for evey node i, the value of node is less then or equal to its parent value
+            -> for every node i, the value of node is less then or equal to its parent value
             A[parent[i]] >= A[i] {except root node because root node doesn't have the parent value}
-            -> array representataion:
+            -> array representation:
                 |70|50|40|45|35|39|16|10|9|
         => Min Heap
             -> for every node i, the value of node is greater then or equal to its parent value
@@ -16,7 +16,7 @@
                 |10|15|19|20|30|25|39|23|40|35|
         => Data will insert from the leaf node
         => No. of possible swap = height of the trees (log n)
-        => Time complexity of insertation in Max heap is O(log n) 
+        => Time complexity of insertion in Max heap is O(log n)
 
 */
 
