@@ -1,23 +1,34 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class MaxHeap
 {
+    vector<int> heap;
+    // Max heap
+    // int size = 20;
+    // int *arr2 = new int[size]{70, 60, 40, 45, 50, 39, 16, 10, 9, 35, 5};
+
 public:
-    void insert(int arr[], int *n, int val)
+    MaxHeap(vector<int> heap)
     {
-        *n = *n + 1;
-        arr[*n - 1] = val;
-        int i = *n - 1;
-        while (i >= 0)
+        this->heap = heap;
+    }
+
+    void insert(int val)
+    {
+        this->heap.push_back(val);
+        int i = this->heap.size() - 1;
+        while (i > 0)
         {
+            // we don't need to calculate for index 0 because it will not have any parent
             int parent = i / 2;
-            if (arr[i] > arr[parent])
+            if (this->heap[i] > this->heap[parent])
             {
                 // swap child with parent
-                int temp = arr[i];
-                arr[i] = arr[parent];
-                arr[parent] = temp;
+                int temp = this->heap[i];
+                this->heap[i] = this->heap[parent];
+                this->heap[parent] = temp;
                 i = parent;
             }
             else
@@ -27,11 +38,11 @@ public:
         }
     }
 
-    void display(int arr[], int n)
+    void display()
     {
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < (int)this->heap.size(); i++)
         {
-            cout << arr[i] << " ";
+            cout << this->heap[i] << " ";
         }
         cout << endl;
     }
@@ -39,17 +50,9 @@ public:
 
 int main()
 {
-    int size = 20;
-    // Max heap
-    int arr[20] = {70, 60, 40, 45, 50, 39, 16, 10, 9, 35, 5};
-    int *arr2 = new int[size]{70, 60, 40, 45, 50, 39, 16, 10, 9, 35, 5};
-    int n = 11;
-
-    MaxHeap mh;
-    // mh.display(arr2, n);
-    mh.display(arr, n);
-    mh.insert(arr, &n, 33);
-    mh.display(arr, n);
-
+    MaxHeap mh({70, 60, 40, 45, 50, 39, 16, 10, 9, 35, 5});
+    mh.display();
+    mh.insert(51);
+    mh.display();
     return 0;
 }
