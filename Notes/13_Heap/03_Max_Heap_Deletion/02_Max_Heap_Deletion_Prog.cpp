@@ -2,12 +2,6 @@
 #include <stdio.h>
 using namespace std;
 
-/*
-    # Rule to delete the node
-        -> we can't delete any value from the tree
-        -> we can only delete the root node
-*/
-
 void displayHeap(int A[], int n)
 {
     for (int i = 0; i < n; i++)
