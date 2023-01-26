@@ -42,26 +42,28 @@ public:
 
     bool isBST(Node<DataType> *root)
     {
-        if (root == nullptr)
-        {
-            return true;
-        }
+        // we will do a inorder traversal
+        // NOTE: BST inOrder traversal will be in ascending order
+        static struct node *prev = nullptr;
 
-        if (root->left != nullptr)
-        {
-            if (root->left->data < root->data)
-                isBST(root->left);
-            else
-                return false;
-        }
-        if (root->right != nullptr)
-        {
-            if (root->right->data > root->data)
-                isBST(root->right);
-            else
-                return false;
-        }
-        return true;
+        if (root == nullptr)
+            // if root element is null then BST is valid
+            return true;
+
+        // left
+        if (!isBST(root->left))
+            return false;
+
+        // root
+        // check for root element
+        if (prev != nullptr && root->val <= prev->val)
+            return false;
+
+        // after visiting root because we have to compare current val with previous val we have to set root as previous
+        prev = root;
+
+        // right
+        return isBST(root->right);
     }
 
     void inOrder(Node<DataType> *ptr)
