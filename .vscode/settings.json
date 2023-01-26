@@ -97,5 +97,6 @@
     "xmemory": "cpp",
     "xstddef": "cpp",
     "xtr1common": "cpp"
-  }
+  },
+  "cSpell.words": ["heapify"]
 }

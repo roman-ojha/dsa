@@ -1,13 +1,13 @@
 /*
     # Sorting Heap process:
-        1) Create a MaxHeap
-        2) Delete Data from MaxHeap one by one 
-        3) after that Heap will be sorted
+        1) Build a MaxHeap.
+        2) Delete Data from MaxHeap one by one.
+        3) after all the deleted data that we delete will be sorted.
     => Time Complexity
         => in creation O(nlog n)
         => in deletion O(nlog n)
         => Total = O(nlog n)+O(nlog n) => O(2nlog n) => O(nlog n)
-    
+
     => we can decrease the time Complexity to O(n) by Heapify method
     # Heapify method
         => Time Complexity for creation of MaxHeap using Heapify method is O(n)
