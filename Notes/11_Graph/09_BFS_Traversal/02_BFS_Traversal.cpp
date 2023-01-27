@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 #include <array>
 using namespace std;
 
@@ -51,6 +52,42 @@ void createGraph(vector<vector<Edge>> *graph, int vertex)
     graph->at(6).push_back({6, 5});
 }
 
+void bfs(vector<vector<Edge>> *graph, int V)
+{
+    // Queue to store vertices
+    queue<int> q;
+
+    // create visited array upto the size of vertices
+    vector<bool> *visited = new vector<bool>(V, false);
+
+    // adding starting node into queue
+    q.push(0);
+    // mark that node as visited
+    visited->at(0) = true;
+
+    while (!q.empty())
+    {
+        // get the first queue element
+        int vertex = q.front();
+        cout << vertex << " ";
+        // pop element from queue
+        q.pop();
+        // now check for all the adjacent vertex
+        for (int i = 0; i < (int)graph->at(vertex).size(); i++)
+        {
+            // adjacent vertex
+            int av = graph->at(vertex).at(i).dest;
+            if (!visited->at(av))
+            {
+                // if Adjacent vertex is not visited then push into queue
+                q.push(av);
+                // and mark adjacent vertex as visited
+                visited->at(av) = true;
+            }
+        }
+    }
+}
+
 int main()
 {
     // Number of vertex
@@ -58,6 +95,7 @@ int main()
 
     vector<vector<Edge>> *graph = new vector<vector<Edge>>;
     createGraph(graph, V);
+    bfs(graph, V);
 
     return 0;
 }
