@@ -2,21 +2,22 @@
     # Graph Traversal(Search)
         => Technique used for visiting each vertex or node of the graph.
         => application:
-            *) Finding all reachable nodes (for grabage collection)
+            *) Finding all reachable nodes (for garbage collection)
             *) Finding the best reachable node (single-player game search) or the minmax best reachable node (two-player game search)
-            *) Finding the best path throught a graph(for routing and map directions)
+            *) Finding the best path through a graph(for routing and map directions)
         => How are they classified ?
             -> Depending on the order in which vertices are visited.
                 *) BFS - Breadth first Search
                 *) DFS - Depth first Search
 
     # Breadth first search - BFS
-        => Like an army of soldiers sperading out to cover the area.
-        -> Start traversal from a node and explore graph layerwise.
+        => It is same like a Level order traversal in Binary Tree
+        => Like an army of soldiers spreading out to cover the area.
+        -> Start traversal from a node and explore graph layer wise.
         => Which data structure to use ?
             *) FIFO Data structure (Queue)
-                => bredth releted to width so, we will use queue
-                => but DFS , depth releated to height so, we will use Stack in DFS
+                => breadth related to width so, we will use queue
+                => but DFS , depth related to height so, we will use Stack in DFS
         => when we are doing graph Traversal we have to avoid cycle
         => How to avoid cycles ?
             *) Keep track of visited nodes
@@ -26,20 +27,23 @@
             visited = array
             step 01 : add start vertex to queue(q) and mark start as visited
             step 02 : while q!=empty
-                        v=front of queue
+                        v= front of queue
+                        output: v
                         dequeue the q
-                        output:
                         for each adjacent vertex av of v:
-                            if a is not visited:
+                            if av is not visited:
                                 add av to queue q
                                 mark av as visited
+        => Time complexity : O(V + E)
+            -> V: number of vertex
+            -> E: number of edges
         => Applications:
-            *) Peer to peer Neteorks (Utorrent, bittorrent)
+            *) Peer to peer Network (UTorrent, bittorrent)
             *) Social Networking Websites
             *) GPS Navigation systems
             *) Path finding
             *) Broadcasting in Network
-            *) Grabage Collection
+            *) Garbage Collection
 */
 
 #include <iostream>

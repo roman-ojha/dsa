@@ -1,6 +1,6 @@
 /*
     # Depth first Search - DFS
-    => Like a single search proging unknown area as deply as possible, retreating only when metting dead ends.
+    => Like a single search proging unknown area as deeply as possible, retreating only when meeting dead ends.
     => Start traversal from a node and goes as far as it can a given path, then backtracks until it finds an unexplored path, and then explores it.
     => Which data structure to use?
         *) LIFO data structure (Stack)
