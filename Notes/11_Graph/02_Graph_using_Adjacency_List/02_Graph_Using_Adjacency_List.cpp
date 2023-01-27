@@ -35,6 +35,7 @@ void createGraph(vector<vector<Edge>> *graph, int vertex)
         graph->push_back(vec);
     }
 
+    // Created graph according to the './Docs/03_Adjacency_List.png'
     // // graph->at(<for_vertex>)->push_back({<from>, <to>});
     graph->at(0).push_back({0, 2});
 
