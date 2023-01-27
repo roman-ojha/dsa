@@ -28,14 +28,14 @@
             step 02 : while q!=empty
                         v=front of queue
                         dequeue the q
-                        output: 
+                        output:
                         for each adjacent vertex av of v:
                             if a is not visited:
                                 add av to queue q
                                 mark av as visited
         => Applications:
             *) Peer to peer Neteorks (Utorrent, bittorrent)
-            *) Social Networking Websites 
+            *) Social Networking Websites
             *) GPS Navigation systems
             *) Path finding
             *) Broadcasting in Network
@@ -47,8 +47,8 @@
 #include <vector>
 #include <queue>
 using namespace std;
-int V = 7; // vertices
 
+int V = 7; // vertices
 void displayGraph(vector<int> graph[])
 {
     for (int i = 0; i < V; i++)
@@ -92,7 +92,8 @@ void bfs(vector<int> graph[], int start)
 
 int main()
 {
-    vector<int> graph[V];
+    // int V = 7; // vertices
+    vector<int> graph[7];
     addEdge(graph, 0, 1);
     // addEdge(<array>,<vertex>,<adjacent>)
     addEdge(graph, 0, 3);
