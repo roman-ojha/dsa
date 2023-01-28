@@ -2,7 +2,7 @@
     # 3 steps for Recursion
         1) find the base case
         2) find the relation between the problem and subproblems
-        3) Generalise the relation
+        3) Generalize the relation
 */
 
 #include <iostream>
