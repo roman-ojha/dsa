@@ -1,5 +1,6 @@
 /*
-    ->https://leetcode.com/problems/longest-common-prefix/
+    -> https://leetcode.com/problems/longest-common-prefix/
+    -> https://leetcode.com/problems/longest-common-prefix/solutions/127449/longest-common-prefix/
     *) Longest Common Prefix:
         Write a function to find the longest common prefix string amongst an array of strings.
 
@@ -22,11 +23,19 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+/*
+ * @lc app=leetcode id=14 lang=cpp
+ *
+ * [14] Longest Common Prefix
+ */
 
+// @lc code=start
 class Solution
 {
 public:
-    string longestCommonPrefix(vector<string> &strs)
+    // horizontal scanning
+    // O(S) : sum of all characters in all strings
+    string longestCommonPrefix1(vector<string> &strs)
     {
         string lcp = strs[0];
         for (auto &str : strs)
@@ -51,10 +60,35 @@ public:
         }
         return lcp;
     }
+
+    // Vertical scanning
+    // Worst case: O(S)
+    // Best case: O(row * minCol)
+    string longestCommonPrefix(vector<string> &strs)
+    {
+        if (strs.empty())
+            return "";
+
+        for (int col = 0; col < strs[0].size(); col++)
+        {
+            // scanning vertically
+            char curr = strs[0][col];
+            for (int row = 0; row < (int)strs.size(); row++)
+            {
+                if (col == strs[row].size() || strs[row][col] != curr)
+                {
+                    return strs[0].substr(0, col);
+                }
+            }
+        }
+        return strs[0];
+    }
 };
+// @lc code=end
 
 int main()
 {
-
+    string s = "abcd";
+    cout << s.substr(1, 2);
     return 0;
 }
