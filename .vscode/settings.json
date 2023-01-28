@@ -98,5 +98,6 @@
     "xstddef": "cpp",
     "xtr1common": "cpp"
   },
-  "cSpell.words": ["heapify"]
+  "cpell.words": ["heapify"]
+  // "editor.quickSuggestions": false
 }
