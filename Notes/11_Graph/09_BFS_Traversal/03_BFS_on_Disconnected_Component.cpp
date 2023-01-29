@@ -69,6 +69,7 @@ int main()
 
     // we will use one visited array
     vector<bool> *visited = new vector<bool>(V, false);
+    // if we have to visit the disconnected component graph
     // then we will loop for all the vertices to check is that visited
     // if that is visited than we don't have to performing BFS from that vertex
     for (int i = 0; i < V; i++)
