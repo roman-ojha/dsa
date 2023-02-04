@@ -1,125 +1,109 @@
-#include <iostream>
-using namespace std;
+/*
+    Implementation of Queue:
 
-template <class T>
-class Queue
+    struct Queue
+    {
+        int size;
+        int f; // front
+        int r; // rear
+        int *arr;
+    }
+
+    int main()
+    {
+        struct Queue q;
+        q.size=10;
+        q.f=-1;
+        q.r=-1;
+        q.arr=(int *)malloc(q.size*sizeof(int));
+        return 0;
+    }
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct queue
 {
-private:
     int size;
-    int front;
-    int rare;
-    T *arr;
-
-public:
-    Queue() : size(0), front(0), rare(0), arr(nullptr) {}
-    Queue(int size) : size(0)
-    {
-        this->arr = new int[size];
-        this->front = -1;
-        this->rare = -1;
-    }
-    ~Queue()
-    {
-        delete[] this->arr;
-    }
-
-    bool empty()
-    {
-        return this->front > this->rare ? true : false;
-    }
-
-    bool full()
-    {
-        return this->rare == this->size - 1 ? true : false;
-    }
-
-    void enqueue(int val)
-    {
-        if (this->front == -1 && this->rare == -1)
-        {
-            this->front = 0;
-            this->rare = 0;
-            this->arr[this->rare] = val;
-            return;
-        }
-        else if (this->full())
-        {
-            cout << "Queue is full" << endl;
-            return;
-        }
-        this->rare++;
-        this->arr[this->rare] = val;
-    }
-
-    void top()
-    {
-        return this->arr[this->front];
-    }
-
-    void back()
-    {
-        return this->arr[this->rare];
-    }
-
-    void dequeue()
-    {
-        if (this->empty())
-        {
-            cout << "Queue is empty" << endl;
-            return;
-        }
-        this->front++;
-    }
-
-    int *data()
-    {
-        // return underlying array
-        return this->arr;
-    }
-
-    int queue_rare()
-    {
-        return this->rare;
-    }
-
-    int queue_front()
-    {
-        return this->front;
-    }
+    int f;
+    int r;
+    int *arr;
 };
 
-// print queue
-void print_queue(int *arr, int front, int rare)
+int isEmpty(struct queue *q)
 {
-    for (int i = front; i <= rare; i++)
+    if (q->r == q->f)
     {
-        cout << arr[i] << " ";
+        return 1;
     }
-    cout << endl;
+    return 0;
+}
+
+int isFull(struct queue *q)
+{
+    if (q->r == q->size - 1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void enqueue(struct queue *q, int val)
+{
+    if (isFull(q))
+    {
+        printf("This Queue is full\n");
+    }
+    else
+    {
+        q->r++;
+        q->arr[q->r] = val;
+        printf("Enqued element: %d\n", val);
+    }
+}
+
+int dequeue(struct queue *q)
+{
+    int a = -1;
+    if (isEmpty(q))
+    {
+        printf("This Queue is empty\n");
+    }
+    else
+    {
+        q->f++;
+        a = q->arr[q->f];
+    }
+    return a;
 }
 
 int main()
 {
-    Queue<int> q(50);
-    q.enqueue(10);
-    q.enqueue(13);
-    q.enqueue(41);
-    q.enqueue(38);
+    struct queue q;
+    q.size = 4;
+    q.f = q.r = 0;
+    q.arr = (int *)malloc(q.size * sizeof(int));
 
-    int *arr = q.data();
-    int front = q.queue_front();
-    int rare = q.queue_rare();
-    print_queue(arr, front, rare);
+    // Enqueue few elements
+    enqueue(&q, 12);
+    enqueue(&q, 15);
+    enqueue(&q, 1);
+    printf("Dequeuing element %d\n", dequeue(&q));
+    printf("Dequeuing element %d\n", dequeue(&q));
+    printf("Dequeuing element %d\n", dequeue(&q));
+    enqueue(&q, 45);
+    enqueue(&q, 45);
+    enqueue(&q, 45);
 
-    q.dequeue();
-    q.dequeue();
-    q.dequeue();
-    q.dequeue();
-
-    arr = q.data();
-    front = q.queue_front();
-    rare = q.queue_rare();
-    print_queue(arr, front, rare);
-
+    if (isEmpty(&q))
+    {
+        printf("Queue is empty\n");
+    }
+    if (isFull(&q))
+    {
+        printf("Queue is full\n");
+    }
     return 0;
 }
