@@ -64,3 +64,90 @@
                 -> J2, J4, J3, J5, J1
             => with maximum profit of: 65
 */
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class Job
+{
+public:
+    int id;
+    int profit;
+    int deadline;
+    Job(int id, int profit, int deadline) : id(id), profit(profit), deadline(deadline) {}
+
+    bool operator>(const Job &j) const
+    {
+        return profit > j.profit;
+    }
+};
+
+void print_jobs(Job jobs[], int n)
+{
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Job: " << jobs[i].id << endl;
+        cout << "Profit: " << jobs[i].profit << " Deadline: " << jobs[i].deadline << endl;
+    }
+}
+
+void job_sequencing(Job jobs[], int n, int max_deadline)
+{
+    // for we will sort the Job according to profit
+    sort(jobs, jobs + n, greater<Job>());
+    print_jobs(jobs, n);
+
+    // to store the job sequence result
+    int *sequence_result = new int[max_deadline];
+
+    // to determine the free & filled slot
+    bool *slot = new bool[max_deadline];
+
+    // set all slot of them as false
+    for (int i = 0; i < n; i++)
+    {
+        slot[i] = false;
+    }
+
+    // we will iterate through all the sorted job from higher profit to lower
+    for (int i = 0; i < n; i++)
+    {
+        // start to check from the max deadline that specific job(job[i]) upto the 0
+        // where we find the slot we will insert that job into it
+        for (int j = jobs[i].deadline - 1; j >= 0; j--)
+        {
+            // if for that particular sequence slot is empty in that case we will insert
+            if (slot[j] == false)
+            {
+                sequence_result[j] = jobs[i].id; // Add this job to result
+                slot[j] = true;                  // Make this slot occupied
+                break;
+            }
+        }
+    }
+
+    // Print job sequence
+    for (int i = 0; i < max_deadline; i++)
+    {
+        cout << "J" << sequence_result[i] << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int n = 5;
+    Job arr[] = {
+        // {id, profit, deadline}
+        {1, 60, 2},
+        {2, 100, 1},
+        {3, 20, 3},
+        {4, 40, 2},
+        {5, 20, 1}};
+
+    job_sequencing(arr, n, 3);
+
+    return 0;
+}
