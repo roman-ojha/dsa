@@ -38,7 +38,7 @@ void print_items(Item items[], int n)
 }
 
 // Time complexity = O(NLogN)
-float fractional_knapsack(Item items[], int capacity, int n)
+float fractional_knapsack(Item items[], int W, int n)
 {
     // O(n)
     for (int i = 0; i < n; i++)
@@ -56,22 +56,21 @@ float fractional_knapsack(Item items[], int capacity, int n)
     // O(n)
     for (int i = 0; i < n; i++)
     {
-        if (capacity < 0)
-        {
-            break;
-        }
-        if (capacity > 0 && items[i].weight <= capacity)
+        if (items[i].weight <= W)
         {
             // can insert into knapsack
-            capacity = capacity - items[i].weight;
+            W = W - items[i].weight;
             totalProfit += items[i].value;
         }
-        else if (capacity > 0)
+        else
         {
-            // still have capacity but not upto items[i].weight
+            // still have W(capacity) but not upto items[i].weight
             // insert fraction of the weight into knapsack
-            totalProfit += ((float)capacity / (float)items[i].weight) * items[i].value;
-            capacity = 0;
+            totalProfit += ((float)W / (float)items[i].weight) * items[i].value;
+            // after adding inserting upto capacity it will be zero
+            W = 0;
+            // and it will be final time so we can break from the loop
+            break;
         }
     }
     return totalProfit;
@@ -80,8 +79,9 @@ float fractional_knapsack(Item items[], int capacity, int n)
 int main()
 {
     Item items[] = {{5, 30}, {10, 20}, {20, 100}, {30, 90}, {40, 160}};
-    int capacity = 60;
+    // Capacity
+    int W = 60;
     int n = 5;
-    cout << "Optimal profit earned: " << fractional_knapsack(items, capacity, n) << endl;
+    cout << "Optimal profit earned: " << fractional_knapsack(items, W, n) << endl;
     return 0;
 }
