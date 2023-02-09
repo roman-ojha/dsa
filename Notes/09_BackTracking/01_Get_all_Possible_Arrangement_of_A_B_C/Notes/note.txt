@@ -11,3 +11,5 @@
             -> C -> A B
                | -> B A
             -> total number of arrangement = n!
+
+   => Time complexity: O(n * n!)
