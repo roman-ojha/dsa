@@ -1,0 +1,3 @@
+[submodule "Projects/file-structure-using-binary-tree"]
+	path = Projects/file-structure-using-binary-tree
+	url = git@github.com:roman-ojha/file-structure-using-bt-example.git
