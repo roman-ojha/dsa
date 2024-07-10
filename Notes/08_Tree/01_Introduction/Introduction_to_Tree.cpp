@@ -7,7 +7,7 @@
             2) Parent:
                 -> NOde which connects to the child
             3) Child:
-                -> Node which is connected by another node
+                -> Any node except the root node has one edge upward to a node called parent.
             4) leaf/External node:
                 -> Node which doesn't have child
             5) Internal node:
